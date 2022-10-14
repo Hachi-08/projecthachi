@@ -203,7 +203,9 @@
                                             @foreach ($car_registration as $row)
                                                 <tr>
                                                     <th scope="row">{{ $i++ }}</th>
-                                                    <td>{!! QrCode::size(100)->generate($row->car_registration_id) !!}</td>
+                                                    <td><img src="{{$row->ImagePath}}" alt=""></td>
+                                                    {{-- <td>{!! QrCode::size(100)->generate($row->car_registration_id) !!}</td> --}}
+
                                                     <td>{{ $row->car_registration_name }}</td>
                                                     <td>{{ $row->car_type }}</td>
                                                     <td>{{ $row->users_id }}</td>

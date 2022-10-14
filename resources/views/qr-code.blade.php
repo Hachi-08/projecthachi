@@ -12,8 +12,8 @@
     <h4>QR code Generate</h4>
 
     <br>
-    {!! QrCode::size(250)->generate('learning-points.in') !!}
-    {!! QrCode::format('png')->size(300)->generate('1',storage_path('qrcode/code3.png')) !!}
+    {!! QrCode::size(250)->generate('4') !!}
+    {!! QrCode::format('png')->size(300)->generate('1',storage_path('qrcode/code4.png')) !!}
 
 </body>
 

@@ -18,13 +18,9 @@ class car_registration extends Model
         'car_type'
     ];
 
-    // public function users()
-    // {
-    //     $house_registration = $this->house_registration;
-    //     $users = users::where('house_registration', $house_registration)->first();
-    //     if (!empty($house_registration)) {
-    //             $house_registration = $house_registration->house_registration;
-    //     }
-    //     return $house_registration;
-    // }
+    public function getImagePathAttribute(){
+        $raw_image = $this->QRcode;
+        $image = str_replace('public','',$raw_image);
+        return asset('storage'.$image);
+    }
 }

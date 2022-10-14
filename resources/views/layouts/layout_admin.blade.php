@@ -154,7 +154,9 @@
         </ul>
 
     </aside><!-- End Sidebar-->
-
+    <main id="main" class="main">
+        @yield('content')
+    </main>
     <!-- ======= Footer ======= -->
 
    <!-- End Footer -->
@@ -174,6 +176,6 @@
     <!-- Template Main JS File -->
     <script src="NiceAdmin/assets/js/main.js"></script>
 
-    @yield('content')
+
 </body>
 </html>

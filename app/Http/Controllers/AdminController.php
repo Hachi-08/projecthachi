@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\users;
 use App\Models\car_registration;
-use SimpleSoftwareIO\QrCode;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -102,13 +102,12 @@ class AdminController extends Controller
         // dd($image);
 
 
-        $image = QrCode::format('png')
-        ->size(200)
-        ->generate('A simple example of QR code!');
-        dd($image);
+        $image = QrCode::size(200)->format('png')->generate($request->car_registration_name);
+
 
         $output_file = '/img/img-' . time() . '.png';
-        $full_path = Storage::disk('public')->put($output_file, $image); //storage/app/public/img/qr-code/img-1557309130.png
+        $full_path = Storage::disk('public')->put($output_file, $image);
+        // storage/app/public/img/qr-code/img-1557309130.png
 
         // $image = file_get_contents(full_path);
 
@@ -119,11 +118,12 @@ class AdminController extends Controller
         $car_registrations->car_registration_name= $request->car_registration_name;
         $car_registrations->car_type= $request->car_type;
         // $car_registrations->QRcode->size(500)->generate('Make a qrcode without Laravel!');
+        $car_registrations -> QRcode = $output_file;
         $car_registrations->save();
 
 
 
-         dd($car_registrations);
+        //  dd($car_registrations);
 
         return redirect()->route('admin_member')->with('dataUpdate_admin_member', "บันทึกข้อมูลเรียบร้อย");
     }

@@ -1,12 +1,12 @@
 @extends('layouts.layout_admin')
-@section('title','Hello')
 @section('test_layouts')
-
-<div class='container'>
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Hello Laravel 8</h1>
-        </div>
+Hello
+@endsection
+@section('content')
+<div class="cntainer">
+    <div class="card">TitleHead</div>
+    <div class="card-body">
+        Helloworld
     </div>
 </div>
 @endsection
